@@ -15,13 +15,13 @@ import static org.mockito.Mockito.*;
 public class CatTest {
 
     @Mock
-    private Feline felineMock;
+    private Predator predatorMock ;
 
     private Cat cat;
 
     @Before
     public void init()  {
-        cat = new Cat(felineMock);
+        cat = new Cat(predatorMock);
     }
 
     @Test
@@ -31,14 +31,22 @@ public class CatTest {
     }
 
     @Test
-    public void getFoodTest() throws Exception {
-        List<String> food = List.of("Мясо", "Кость");  // Из Feline getFood
-        when(felineMock.eatMeat()).thenReturn(food);
-
+    public void getFoodReturnsTest() throws Exception {
+        // Проверка результата
+        List<String> food = List.of("Животные", "Птицы", "Рыба");
+        when(predatorMock.eatMeat()).thenReturn(food);
         List<String> result = cat.getFood();
         assertEquals(food, result);
-        verify(felineMock).eatMeat();
     }
+    @Test
+    public void getFoodCallsTest() throws Exception {
+        // Проверка вызова
+        List<String> food = List.of("Животные", "Птицы", "Рыба");
+        when(predatorMock.eatMeat()).thenReturn(food);
+        cat.getFood();
+        verify(predatorMock).eatMeat();
+    }
+
 
     @Test
     public void nullConstructorTest() {
@@ -46,7 +54,7 @@ public class CatTest {
             new Cat(null);
             fail("Null не должен пройти");
         } catch (RuntimeException e) {
-            // OK
+            assertTrue(e.getMessage().contains("Predator"));
         }
     }
 }

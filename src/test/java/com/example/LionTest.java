@@ -36,22 +36,35 @@ public class LionTest {
     }
 
     @Test
-    public void getFoodTest() throws Exception {
-        List<String> food = List.of("Мясо", "Кость");  // Из Feline
+    public void getFoodReturnsTest() throws Exception {
+        // Только результат (исправленно)
+        List<String> food = List.of("Животные", "Птицы", "Рыба");
         when(felineMock.eatMeat()).thenReturn(food);
-
         List<String> result = lion.getFood();
         assertEquals(food, result);
+    }
+    @Test
+    public void getFoodCallsTest() throws Exception {
+        // Только вызов (исправленно)
+        List<String> food = List.of("Животные", "Птицы", "Рыба");
+        when(felineMock.eatMeat()).thenReturn(food);
+        lion.getFood();
         verify(felineMock).eatMeat();
     }
 
     @Test
-    public void kittensTest() {
-        when(felineMock.getKittens()).thenReturn(2);
-
+    public void kittensReturnsTest() {
+        // Только результат с реальным значением
+        when(felineMock.getKittens()).thenReturn(1);
         int count = lion.getKittens();
-        assertEquals(2, count);
-        verify(felineMock).getKittens();
+        assertEquals(1, count);  // Одна проверка
+    }
+    @Test
+    public void kittensCallsTest() {
+        // Только вызов с реальным значением
+        when(felineMock.getKittens()).thenReturn(1);
+        lion.getKittens();
+        verify(felineMock).getKittens();  // Одна проверка
     }
 
     @Test(expected = Exception.class)

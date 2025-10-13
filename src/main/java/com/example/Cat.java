@@ -1,16 +1,16 @@
 package com.example;
 import java.util.List;
 
-public class Cat extends Feline {
+public class Cat  {
 
     Predator predator;  // Зависимость для еды
 
-    public Cat(Feline feline) {
+    public Cat(Predator predator) {  // Правка: Predator вместо Feline
         // Проверка на ноль
-        if (feline == null) {
-            throw new RuntimeException("Feline не может быть null");
+        if (predator == null) {
+            throw new RuntimeException("Predator не может быть null");
         }
-        this.predator = feline;  // Присваиваем как Predator
+        this.predator = predator;
     }
 
     public String getSound() {

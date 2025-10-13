@@ -17,20 +17,6 @@ public class AnimalTest {
     }
 
     @Test
-    public void testFoodHerb() throws Exception {
-        // Тест для "Травоядное"
-        List<String> food = animal.getFood("Травоядное");
-        assertEquals(List.of("Трава", "Различные растения"), food);
-    }
-
-    @Test
-    public void testFoodPredator() throws Exception {
-        // Тест для "Хищник"
-        List<String> food = animal.getFood("Хищник");
-        assertEquals(List.of("Животные", "Птицы", "Рыба"), food);
-    }
-
-    @Test
     public void testFoodThrow() {
         // Тест для throw
         try {

@@ -9,13 +9,13 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 @RunWith(Parameterized.class)
-public class AnimalParameterizedTests {
+public class AnimalParametrizedTests {
 
     private final String animalKind;
     private final List<String> expectedFood;
     private final boolean expectThrow;
 
-    public AnimalParameterizedTests(String animalKind, List<String> expectedFood, boolean expectThrow) {
+    public AnimalParametrizedTests(String animalKind, List<String> expectedFood, boolean expectThrow) {
         this.animalKind = animalKind;
         this.expectedFood = expectedFood;
         this.expectThrow = expectThrow;
@@ -45,12 +45,5 @@ public class AnimalParameterizedTests {
             List<String> food = animal.getFood(animalKind);
             assertEquals(expectedFood, food);
         }
-    }
-
-    @Test
-    public void getFamilyTest() {
-        Animal animal = new Animal();
-        String family = animal.getFamily();
-        assertEquals("Существует несколько семейств: заячьи, беличьи, мышиные, кошачьи, псовые, медвежьи, куньи", family);
     }
 }

@@ -1,18 +1,14 @@
 package com.example;
 
-
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-
-import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
 
 import static org.junit.Assert.*;
 
 
-@RunWith(MockitoJUnitRunner.class)
+
 public class FelineTest {
 
     private Feline feline;
@@ -37,8 +33,10 @@ public class FelineTest {
 
     @Test
     public void testKittensWithInput() {
-        int count = feline.getKittens(3);
-        assertEquals(3, count);
+        // Проверка для перегруженного (не 1)
+        int input = 2;
+        int count = feline.getKittens(input);
+        assertEquals(input, count);
     }
 
     @Test
@@ -57,7 +55,7 @@ public class FelineTest {
 
     @Test
     public void testGetFoodForHerbivore() throws Exception {
-        // Для "Травоядное" — из Animal (super)
+        // Для "Травоядное" — из Animal
         List<String> food = feline.getFood("Травоядное");
         assertEquals(List.of("Трава", "Различные растения"), food);
     }
