@@ -1,21 +1,25 @@
 package com.example;
-
 import java.util.List;
 
-public class Cat {
+public class Cat  {
 
-    Predator predator;
+    Predator predator;  // Зависимость для еды
 
-    public Cat(Feline feline) {
-        this.predator = feline;
+    public Cat(Predator predator) {  // Правка: Predator вместо Feline
+        // Проверка на ноль
+        if (predator == null) {
+            throw new RuntimeException("Predator не может быть null");
+        }
+        this.predator = predator;
     }
 
     public String getSound() {
+        // Звук кошки
         return "Мяу";
     }
 
     public List<String> getFood() throws Exception {
+        // Получаем еду от predator
         return predator.eatMeat();
     }
-
 }
