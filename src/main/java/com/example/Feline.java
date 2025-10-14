@@ -22,14 +22,5 @@ public class Feline extends Animal implements Predator {
     public int getKittens(int kittensCount) {
         return kittensCount;
     }
-
-    // getFood для кошачьих
-    @Override
-    public List<String> getFood(String animalType) throws Exception {
-        if ("Хищник".equals(animalType)) {
-            return Arrays.asList("Мясо", "Кость");
-        } else {
-            return super.getFood(animalType);  // Наследуем от Animal
-        }
-    }
+    
 }

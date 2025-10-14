@@ -4,15 +4,16 @@ import java.util.List;
 
 public class Lion {
 
-    Predator predator;  // Зависимость
+    Feline feline;  // Изменено на Feline
+
     boolean hasMane;  // Грива
 
-    public Lion(Predator predator, String sex) throws Exception {
+    public Lion(Feline feline, String sex) throws Exception {
         // Проверка null
-        if (predator == null) {
-            throw new RuntimeException("Predator не может быть null");
+        if (feline == null) {
+            throw new RuntimeException("Feline не может быть null");
         }
-        this.predator = predator;
+        this.feline = feline;
         // Устанавливаем гриву по полу
         if ("Самец".equals(sex)) {
             hasMane = true;
@@ -24,7 +25,7 @@ public class Lion {
     }
 
     public int getKittens() {
-        return predator.getKittens();
+        return feline.getKittens();
     }
 
     public boolean doesHaveMane() {
@@ -33,6 +34,6 @@ public class Lion {
 
     public List<String> getFood() throws Exception {
         // Еда от predator
-        return predator.eatMeat();
+        return feline.eatMeat();
     }
 }

@@ -43,14 +43,14 @@ public class FelineTest {
     public void testEatMeat() throws Exception {
         // eatMeat вызывает getFood("Хищник") из Feline
         List<String> food = feline.eatMeat();
-        assertEquals(List.of("Мясо", "Кость"), food);
+        assertEquals(List.of("Животные", "Птицы", "Рыба"), food);
     }
 
     @Test
     public void testGetFoodForPredator() throws Exception {
         // Для "Хищник" — из Feline
         List<String> food = feline.getFood("Хищник");
-        assertEquals(List.of("Мясо", "Кость"), food);
+        assertEquals(List.of("Животные", "Птицы", "Рыба"), food);
     }
 
     @Test
